@@ -1,6 +1,8 @@
 # Countdown Game
 import random
 import statistics
+import pandas as pd
+import numpy as np
 
 
 def rand_select(val):
@@ -34,17 +36,18 @@ def div(v1, v2):
     return val
 
 
-target = 714
-values = [97, 2, 3, 5, 7, 13]
-sample_sz = 1
+target = 103
+values = [1, 2, 3, 50, 6, 7]
+sample_sz = 5
 sample = []
-
+solutions = []
 for run in range(sample_sz):
     trials = 1
     ans = 0
     while ans != target:
         [sz, v] = rand_select(values)
         print(v)
+        v_save = list(np.copy(v))
         operations = sel_operations(sz)
         print(operations)
         if operations != []:
@@ -63,6 +66,8 @@ for run in range(sample_sz):
         print(trials)
         print(ans)
         if ans == target:
+            group = [v_save, operations]
+            solutions.append(group)
             print('YES')
             break
         else:
@@ -74,3 +79,4 @@ for run in range(sample_sz):
 print(sample)
 print(statistics.mean(sample))
 print(statistics.median(sample))
+print(solutions)
