@@ -36,9 +36,9 @@ def div(v1, v2):
     return val
 
 
-target = 373
-values = [97, 2, 3, 5, 13, 7]
-sample_sz = 5
+target = 701
+values = [17, 13, 2, 5, 7, 23]
+sample_sz = 1
 sample = []
 solutions = []
 for run in range(sample_sz):
